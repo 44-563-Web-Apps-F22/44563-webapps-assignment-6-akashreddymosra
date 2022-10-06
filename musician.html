@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"   
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" 
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
     <title>Music and Drums</title>
 </head>    
  
@@ -8,14 +14,14 @@
 
 <h2>Musician guess by AkashReddy Mosra</h2>
 
-<form>
+<form class="form-group">
    <label for="form1_age">Enter the secret musician name </label>
     <input type ="password" id="form1_age" name="form1_age"  value="John Lennon"> <br>
 
     <label for="form1_nick">Guess the musician</label>
     <input type ="text" id="form1_nick" name="form1_nick"> <br>
 
-    <input type="button" onclick="checkGuess()" value="Check the guess">
+    <input type="button" class="btn-warning" onclick="checkGuess()" value="Check the guess">
 </form>
 
 
@@ -24,18 +30,24 @@
 <script> 
  var correct=0
  var wrong=0
+ var num=0
 function checkGuess(){
    
     secret = document.getElementById("form1_age").value
     nick = document.getElementById("form1_nick").value
     val=secret.localeCompare(nick,undefined,{sensitivity: 'base' });
     if(val==0){
-        correct=1;
+        correct++;
+        num=0;
         alert("you got it right");
     } 
     else {
-        wrong=1;
+        wrong++;
+        num++;
+        if(num<3)
         alert("wrong musician");
+        if(num>=3)
+        alert("Sorry,game Over")
     }
 
 }</script>
