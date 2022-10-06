@@ -8,7 +8,7 @@
 
 <h2>Musician guess by AkashReddy Mosra</h2>
 
-//<form>
+<form>
    <label for="form1_age">Enter the secret musician name </label>
     <input type ="password" id="form1_age" name="form1_age"  value="John Lennon"> <br>
 
@@ -37,8 +37,31 @@ function checkGuess(){
         wrong=1;
         alert("wrong musician");
     }
+
+}</script>
+<div><img src="odonata.jpg" alt="image1" width="100" height="100" id="image" onclick="swapImage()"></div>
+
+<script>
+    useImage=1;
+function swapImage(){
+    switch(useImage){
+        case 1 :  
+                document.getElementById("image").src = "odonata.jpg";
+                useImage=useImage+1;
+                break;
+        case 2 :
+                document.getElementById("image").src = "honeybee.jpg";
+                useImage=useImage+1;
+                break;
+        case 3 :document.getElementById("image").src = "maggot.jpg";
+                useImage=1;
+                break;
+    }
 }
-</script>
+
+    </script>
+    
+
 
 </body>
 </html> 
